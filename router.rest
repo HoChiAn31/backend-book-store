@@ -2,12 +2,9 @@ GET http://localhost:3000/user
 
 ###
 
-POST http://localhost:3000/user
-Content-Type: application/json
+POST http://localhost:3000/user Content-Type: application/json
 
 {
-    "name": "John 3",
-    "email": "test@gmail.com",
-    "image" : "xinchao",
-    "password": "123456"
+"name": "John 3", "email": "test@gmail.com", "image" : "xinchao", "password": "123456"
+
 }
