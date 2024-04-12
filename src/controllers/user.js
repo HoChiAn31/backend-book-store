@@ -21,6 +21,7 @@ module.exports.addUser = (req, res) => {
             name: req.body.name,
             phone: req.body.phone,
             email: req.body.email,
+            image: req.body.image,
             username: req.body.username,
             password: req.body.password,
         });
