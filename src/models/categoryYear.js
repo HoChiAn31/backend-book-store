@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const categorySupplierAllSchema = new mongoose.Schema({
+const categoryYearSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String,
@@ -11,4 +11,4 @@ const categorySupplierAllSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('categoryAll', categorySupplierAllSchema);
+module.exports = mongoose.model('categoryYear', categoryYearSchema);
