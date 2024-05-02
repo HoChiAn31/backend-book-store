@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Upload Test</title>
+    </head>
+    <body>
+        <h1>Upload Test</h1>
+        <form action="/product/add-product" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required /><br /><br />
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required /><br /><br />
+            <label for="categoryAllId">Category All ID:</label>
+            <input type="text" id="categoryAllId" name="categoryAllId" required /><br /><br />
+            <label for="categoryDetailId">Category Detail ID:</label>
+            <input type="text" id="categoryDetailId" name="categoryDetailId" required /><br /><br />
+            <label for="categorySupplierId">Category Supplier ID:</label>
+            <input type="text" id="categorySupplierId" name="categorySupplierId" required /><br /><br />
+            <label for="categoryPublishId">Category Publish ID:</label>
+            <input type="text" id="categoryPublishId" name="categoryPublishId" required /><br /><br />
+            <label for="categoryYearId">Category Year ID:</label>
+            <input type="text" id="categoryYearId" name="categoryYearId" required /><br /><br />
+            <label for="image">Image:</label>
+            <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                required
+                multiple
+                onchange="handleImageUpload(event)"
+            /><br /><br />
+            <label for="priceImport">Price Import:</label>
+            <input type="number" id="priceImport" name="priceImport" required /><br /><br />
+            <label for="priceSell">Price Sell:</label>
+            <input type="number" id="priceSell" name="priceSell" required /><br /><br />
+            <label for="priceDiscount">Price Discount:</label>
+            <input type="number" id="priceDiscount" name="priceDiscount" /><br /><br />
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required /><br /><br />
+            <label for="form">Form:</label>
+            <input type="text" id="form" name="form" required /><br /><br />
+            <label for="language">Language:</label>
+            <input type="text" id="language" name="language" required /><br /><br />
+            <label for="size">Size:</label>
+            <input type="text" id="size" name="size" required /><br /><br />
+            <label for="pageQuantity">Page Quantity:</label>
+            <input type="number" id="pageQuantity" name="pageQuantity" /><br /><br />
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea><br /><br />
+            <label for="rate">Rate:</label>
+            <input type="number" id="rate" name="rate" required /><br /><br />
+            <label for="ratingPoint">Rating Point:</label>
+            <input type="number" id="ratingPoint" name="ratingPoint" required /><br /><br />
+            <label for="numberOfVisit">Number of Visit:</label>
+            <input type="number" id="numberOfVisit" name="numberOfVisit" required /><br /><br />
+            <button type="submit">Upload</button>
+        </form>
+
+        <script>
+            function handleImageUpload(event) {
+                const files = event.target.files;
+
+                // for (let i = 0; i < files.length; i++) {
+                //     const file = files[i];
+                //     console.log('File Name:', file.name);
+                //     console.log('File Size:', file.size);
+                //     console.log('File Type:', file.type);
+                // }
+                console.log(files);
+            }
+        </script>
+    </body>
+</html>

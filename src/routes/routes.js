@@ -8,6 +8,7 @@ const categoryPublishRoute = require('./categoryPublish');
 const categoryYearRoute = require('./categoryYear');
 const categoryDetailRoute = require('./categoryDetail');
 const productRoute = require('./product');
+const reviewRoute = require('./review');
 
 router.use('/user', userRoute);
 router.use('/login', loginRoute);
@@ -17,5 +18,6 @@ router.use('/categoryPublish', categoryPublishRoute);
 router.use('/categoryYear', categoryYearRoute);
 router.use('/categoryDetail', categoryDetailRoute);
 router.use('/product', productRoute);
+router.use('/review', reviewRoute);
 
 module.exports = router;

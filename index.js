@@ -8,8 +8,11 @@ db.connect();
 const app = express();
 
 app.use(express.json(), cors());
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/src/views/index.html');
+});
 app.use('/api', (req, res) => res.send('Hello World!'));
 app.use('/', routes);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Listening to port ${port}`));

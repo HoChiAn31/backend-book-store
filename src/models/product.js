@@ -6,6 +6,10 @@ const productSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+    quantity: {
+        require: true,
+        type: Number,
+    },
     categoryAllId: {
         require: true,
         type: schema.Types.String,
@@ -26,11 +30,6 @@ const productSchema = new mongoose.Schema({
         type: schema.Types.String,
         ref: 'categoryPublish',
     },
-    categoryTrademarkId: {
-        require: true,
-        type: schema.Types.String,
-        ref: 'categoryTrademark',
-    },
     categoryYearId: {
         require: true,
         type: schema.Types.String,
@@ -40,11 +39,15 @@ const productSchema = new mongoose.Schema({
         require: true,
         type: [String],
     },
-    priceOld: {
+    priceImport: {
         require: true,
         type: Number,
     },
-    priceCurrent: {
+    priceSell: {
+        require: true,
+        type: Number,
+    },
+    priceDiscount: {
         require: false,
         type: Number,
     },
@@ -73,16 +76,27 @@ const productSchema = new mongoose.Schema({
         type: String,
     },
     rate: {
-        require: true,
+        require: false,
         type: Number,
+        default: 0,
     },
     ratingPoint: {
-        require: true,
+        require: false,
         type: Number,
+        default: 0,
     },
     numberOfVisit: {
-        require: true,
+        require: false,
         type: Number,
+        default: 0,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now,
     },
 });
 

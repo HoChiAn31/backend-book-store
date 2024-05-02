@@ -9,6 +9,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+    phone: {
+        required: true,
+        type: number,
+    },
+    address: {
+        required: true,
+        type: String,
+    },
     password: {
         required: true,
         type: String,
@@ -16,6 +24,38 @@ const userSchema = new mongoose.Schema({
     image: {
         required: false,
         type: String,
+    },
+    pointCoin: {
+        required: false,
+        type: number,
+    },
+    isReview: {
+        required: false,
+        type: Boolean,
+        default: false,
+    },
+    isBan: {
+        required: false,
+        type: Boolean,
+        default: false,
+    },
+    categoryDetail: [
+        {
+            categoryDetailId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'categoryDetail',
+                required: false,
+            },
+            count: {
+                type: Number,
+                default: 0,
+            },
+        },
+    ],
+    role: {
+        required: false,
+        type: String,
+        default: 'user',
     },
 });
 
