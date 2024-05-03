@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: {
+    firstName: {
+        required: true,
+        type: String,
+    },
+    lastName: {
         required: true,
         type: String,
     },
@@ -11,23 +15,43 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         required: true,
-        type: number,
+        type: Number,
+    },
+    birthday: {
+        required: false,
+        type: Date,
+    },
+    gender: {
+        required: false,
+        type: String,
     },
     address: {
         required: true,
         type: String,
     },
-    password: {
-        required: true,
+    country: {
+        required: false,
         type: String,
     },
-    image: {
+    city: {
+        required: false,
+        type: String,
+    },
+    district: {
+        required: false,
+        type: String,
+    },
+    ward: {
+        required: false,
+        type: String,
+    },
+    image_url: {
         required: false,
         type: String,
     },
     pointCoin: {
         required: false,
-        type: number,
+        type: Number,
     },
     isReview: {
         required: false,
@@ -49,6 +73,7 @@ const userSchema = new mongoose.Schema({
             count: {
                 type: Number,
                 default: 0,
+                required: false,
             },
         },
     ],
@@ -56,6 +81,14 @@ const userSchema = new mongoose.Schema({
         required: false,
         type: String,
         default: 'user',
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now,
     },
 });
 
