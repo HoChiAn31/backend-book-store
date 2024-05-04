@@ -13,10 +13,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+
+    phone: {
+        required: false,
+        type: Number,
+
     email: {
         required: true,
         unique: true,
         type: String,
+
     },
     birthday: {
         required: false,
@@ -26,11 +32,13 @@ const userSchema = new mongoose.Schema({
         required: false,
         type: String,
     },
+
     addresses: {
         phoneNumber: String,
         ward: String,
         district: String,
         province: String,
+
     },
     img: {
         required: false,
