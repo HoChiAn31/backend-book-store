@@ -18,12 +18,8 @@ module.exports.getUser = (req, res) => {
 module.exports.addUser = (req, res) => {
     user.find().then(() => {
         const User = new user({
-            name: req.body.name,
-            phone: req.body.phone,
+            fullName: req.body.fullName,
             email: req.body.email,
-            image: req.body.image,
-            username: req.body.username,
-            password: req.body.password,
         });
         User.save()
             .then((data) => res.json(data))

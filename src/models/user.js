@@ -2,20 +2,21 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     firstName: {
-        required: true,
+        required: false,
         type: String,
     },
     lastName: {
+        required: false,
+        type: String,
+    },
+    fullName: {
         required: true,
         type: String,
     },
     email: {
         required: true,
+        unique: true,
         type: String,
-    },
-    phone: {
-        required: true,
-        type: Number,
     },
     birthday: {
         required: false,
@@ -25,27 +26,13 @@ const userSchema = new mongoose.Schema({
         required: false,
         type: String,
     },
-    address: {
-        required: true,
-        type: String,
+    addresses: {
+        phoneNumber: String,
+        ward: String,
+        district: String,
+        province: String,
     },
-    country: {
-        required: false,
-        type: String,
-    },
-    city: {
-        required: false,
-        type: String,
-    },
-    district: {
-        required: false,
-        type: String,
-    },
-    ward: {
-        required: false,
-        type: String,
-    },
-    image_url: {
+    img: {
         required: false,
         type: String,
     },
