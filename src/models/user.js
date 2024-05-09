@@ -10,19 +10,17 @@ const userSchema = new mongoose.Schema({
         type: String,
     },
     fullName: {
-        required: true,
+        required: false,
         type: String,
     },
-
     phone: {
         required: false,
         type: Number,
-
+    },
     email: {
         required: true,
         unique: true,
         type: String,
-
     },
     birthday: {
         required: false,
@@ -38,11 +36,12 @@ const userSchema = new mongoose.Schema({
         ward: String,
         district: String,
         province: String,
-
     },
     img: {
         required: false,
         type: String,
+        default:
+            'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg',
     },
     pointCoin: {
         required: false,
