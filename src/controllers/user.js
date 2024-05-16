@@ -15,6 +15,14 @@ module.exports.getUser = (req, res) => {
         .catch((err) => console.log(err));
 };
 
+module.exports.getUserEmail = (req, res) => {
+    user.findOne(req.params.email)
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => console.log(err));
+};
+
 module.exports.addUser = (req, res) => {
     user.find().then(() => {
         const User = new user({ ...req.body });

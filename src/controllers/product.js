@@ -1,8 +1,16 @@
 const product = require('../models/product');
 const { addProduct } = require('../services/Product');
 module.exports.getAllProduct = (req, res) => {
+    const categoryId = req.query.categoryId;
+
+    let query = {};
+
+    if (categoryId) {
+        query.categoryAllId = categoryId;
+    }
+
     product
-        .find()
+        .find(query)
         .then((data) => {
             res.json(data);
         })
@@ -17,14 +25,6 @@ module.exports.getProduct = (req, res) => {
         .catch((err) => console.log(err));
 };
 
-// module.exports.addProduct = (req, res) => {
-//     product.find().then(() => {
-//         const productNew = new product({ ...req.body });
-//         productNew.save()
-//             .then((data) => res.json(data))
-//             .catch((err) => console.log(err));
-//     });
-// };
 module.exports.addProduct = async (req, res) => {
     const {
         name,
