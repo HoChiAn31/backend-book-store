@@ -11,6 +11,8 @@ const productRoute = require('./product');
 const reviewRoute = require('./review');
 const conversationRoute = require('./conversation');
 const messageRoute = require('./message');
+const cartRoute = require('./cart');
+const paymentRoute = require('./payment');
 router.use('/user', userRoute);
 router.use('/login', loginRoute);
 router.use('/categoryAll', categoryAllRoute);
@@ -22,5 +24,6 @@ router.use('/product', productRoute);
 router.use('/review', reviewRoute);
 router.use('/conversation', conversationRoute);
 router.use('/message', messageRoute);
-
+router.use('/cart', cartRoute);
+router.use('/payment', paymentRoute);
 module.exports = router;
