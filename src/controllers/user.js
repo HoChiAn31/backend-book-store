@@ -41,6 +41,7 @@ module.exports.editUser = (req, res) => {
             res.json({ message: error.message });
         });
 };
+
 module.exports.deleteUser = (req, res) => {
     user.findByIdAndDelete(req.params.id, { new: true })
         .then((data) => {

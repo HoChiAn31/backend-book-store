@@ -1,40 +1,40 @@
-const review = require('../models/review');
+const payment = require('../models/payment');
 
-module.exports.getAllReview = (req, res) => {
-    review
+module.exports.getAllPayment = (req, res) => {
+    payment
         .find()
         .then((data) => {
             res.json(data);
         })
         .catch((err) => console.log(err));
 };
-module.exports.getReview = (req, res) => {
-    review
+module.exports.getPayment = (req, res) => {
+    payment
         .findById(req.params.id)
         .then((data) => {
             res.json(data);
         })
         .catch((err) => console.log(err));
 };
-module.exports.getReviewByProduct = (req, res) => {
-    review
-        .find({ productId: req.params.productId })
+module.exports.getPaymentByUserId = (req, res) => {
+    payment
+        .find({ userId: req.params.userId })
         .then((data) => {
             res.json(data);
         })
         .catch((err) => console.log(err));
 };
-module.exports.addReview = (req, res) => {
-    review.find().then(() => {
-        const reviewNew = new review({ ...req.body });
-        reviewNew
+module.exports.addPayment = (req, res) => {
+    payment.find().then(() => {
+        const newPayments = new payment({ ...req.body });
+        newPayments
             .save()
             .then((data) => res.json(data))
             .catch((err) => console.log(err));
     });
 };
-module.exports.editReview = (req, res) => {
-    review
+module.exports.editPayment = (req, res) => {
+    payment
         .findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((data) => {
             res.json(data);
@@ -43,8 +43,17 @@ module.exports.editReview = (req, res) => {
             res.json({ message: error.message });
         });
 };
-module.exports.deleteReview = (req, res) => {
-    review
+module.exports.editPaymentUser = (req, res) => {
+    user.findByIdAndUpdate(req.params.userId, req.body, { new: true })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) => {
+            res.json({ message: error.message });
+        });
+};
+module.exports.deletePayment = (req, res) => {
+    payment
         .findByIdAndDelete(req.params.id, { new: true })
         .then((data) => {
             res.send(`Document has been deleted.`);
