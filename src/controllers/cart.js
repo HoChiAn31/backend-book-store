@@ -15,7 +15,7 @@ module.exports.getCart = (req, res) => {
         .catch((err) => console.log(err));
 };
 module.exports.getCartByUserId = (req, res) => {
-    const userId = req.query.userId;
+    const userId = req.params.userId;
 
     cart.find({ userId: userId })
         .then((data) => {
