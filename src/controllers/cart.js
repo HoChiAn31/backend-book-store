@@ -15,11 +15,16 @@ module.exports.getCart = (req, res) => {
         .catch((err) => console.log(err));
 };
 module.exports.getCartByUserId = (req, res) => {
-    cart.find({ userId: req.params.userId })
+    const userId = req.query.userId;
+
+    cart.find({ userId: userId })
         .then((data) => {
             res.json(data);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: "Internal server error" });
+        });
 };
 module.exports.addCart = (req, res) => {
     cart.find().then(() => {
@@ -47,6 +52,21 @@ module.exports.editCartUser = (req, res) => {
             res.json({ message: error.message });
         });
 };
+module.exports.editCartByUserId = (req, res) => {
+    const userId = req.query.userId;
+
+    cart.findOneAndUpdate({ userId: userId }, req.body, { new: true })
+        .then((data) => {
+            if (!data) {
+                return res.status(404).json({ message: "Cart not found" });
+            }
+            res.json(data);
+        })
+        .catch((error) => {
+            res.status(500).json({ message: error.message });
+        });
+};
+
 module.exports.deleteCart = (req, res) => {
     cart.findByIdAndDelete(req.params.id, { new: true })
         .then((data) => {
