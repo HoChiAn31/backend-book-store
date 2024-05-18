@@ -5,10 +5,10 @@ const cart = require('../controllers/cart');
 router.get('/', cart.getAllCart);
 router.get('/:id', cart.getCart);
 router.get('/user/:userId', cart.getCartByUserId);
-
+router.post('/edit/:userId', cart.editCartByUserId);
 router.post('/', cart.addCart);
+router.put('/edit/:userId', cart.editCartByUserId);
 router.put('/:id', cart.editCart);
-router.put('/cart', cart.editCartByUserId);
 router.patch('/:id', cart.editCart);
 router.patch('/user/:userId', cart.editCartUser);
 router.delete('/:id', cart.deleteCart);
