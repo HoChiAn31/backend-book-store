@@ -13,6 +13,9 @@ const conversationRoute = require('./conversation');
 const messageRoute = require('./message');
 const cartRoute = require('./cart');
 const paymentRoute = require('./payment');
+const discountCodeRoute = require('./discountCode');
+// const vnPayRoute = require('./vnpay');
+const favoriteRoute = require('./favorite');
 router.use('/user', userRoute);
 router.use('/login', loginRoute);
 router.use('/categoryAll', categoryAllRoute);
@@ -26,4 +29,9 @@ router.use('/conversation', conversationRoute);
 router.use('/message', messageRoute);
 router.use('/cart', cartRoute);
 router.use('/payment', paymentRoute);
+router.use('/discountCode', discountCodeRoute);
+// router.use('/order', vnPayRoute);
+router.use('/favorite', favoriteRoute);
+// =================================================================
+
 module.exports = router;

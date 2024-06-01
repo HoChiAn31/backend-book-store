@@ -21,6 +21,10 @@ const paymentSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+    reasonStatus: {
+        type: String,
+        required: false,
+    },
     paymentMethod: {
         type: String,
         required: true,
