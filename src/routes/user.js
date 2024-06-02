@@ -5,7 +5,7 @@ const user = require('../controllers/user');
 router.get('/', user.getAllUser);
 router.post('/', user.addUser);
 router.get('/:id', user.getUser);
-router.get('user/:clerkId', user.getUserbyId);
+router.get('/user/:clerkId', user.getUserbyId);
 router.get('/:email', user.getUserEmail);
 router.put('/:id', user.editUser);
 router.patch('/:id', user.editUser);
