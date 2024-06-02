@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.json(), cors());
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/src/views/index.html');
+    res.send('Hello World!');
 });
 // app.use('/api', (req, res) => res.send('Hello World!'));
 app.use('/', routes);
