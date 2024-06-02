@@ -15,6 +15,13 @@ module.exports.getUser = (req, res) => {
         .catch((err) => console.log(err));
 };
 
+module.exports.getUserbyId = (req, res) => {
+    user.find({ clerkId: req.params.clerkId })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => console.log(err));
+};
 module.exports.getUserEmail = (req, res) => {
     user.findOne(req.params.email)
         .then((data) => {

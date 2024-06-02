@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    clerkId: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    firstLogin: {
+        required: true,
+        type: Boolean,
+        default: true,
+    },
     firstName: {
         required: false,
         type: String,
