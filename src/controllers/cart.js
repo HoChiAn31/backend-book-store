@@ -1,4 +1,5 @@
 const cart = require('../models/cart');
+const product = require('../models/product');
 
 module.exports.getAllCart = (req, res) => {
     cart.find()
@@ -77,6 +78,31 @@ module.exports.editCartByUserId = async (req, res) => {
             }
         }
         // Lưu hoặc cập nhật giỏ hàng
+        const updatedCart = await cartData.save();
+        res.json(updatedCart);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports.editCancelCartByUserId = async (req, res) => {
+    const userId = req.params.userId;
+    const productId = req.body.productId;
+
+    try {
+        let cartData = await cart.findOne({ userId: userId });
+        if (!cartData) {
+            res.status(404).json({ message: 'Cart does not exist' });
+            return;
+        }
+        const existingProductIndex = cartData.products.findIndex((product) => product.productId === productId);
+        console.log(existingProductIndex);
+        if (existingProductIndex !== -1) {
+            res.status(400).json({ message: 'Product does not exist in the cart' });
+            return;
+        }
+
+        cartData.products.splice(existingProductIndex, 1);
         const updatedCart = await cartData.save();
         res.json(updatedCart);
     } catch (error) {
