@@ -10,6 +10,7 @@ router.post('/', cart.addCart);
 router.put('/edit/:userId', cart.editCartByUserId);
 router.put('/:id', cart.editCart);
 router.patch('/:id', cart.editCart);
+router.patch('/user/cancel/:userId', cart.editCancelCartByUserId);
 router.patch('/user/:userId', cart.editCartUser);
 router.delete('/:id', cart.deleteCart);
 module.exports = router;
