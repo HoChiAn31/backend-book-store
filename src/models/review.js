@@ -12,6 +12,10 @@ const reviewerSchema = new schema(
             required: false,
             type: String,
         },
+        userAvatar: {
+            required: false,
+            type: String,
+        },
         content: {
             required: false,
             type: String,
